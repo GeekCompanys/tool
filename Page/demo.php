@@ -1,7 +1,10 @@
 <?php
 include 'Page.php';//引入分页类
-define('BOTHNUM', 6);//当前页连边显示数量，不设置则为默认值
-$page = new Page(123,10);//实例化分页类，第一个参数为总记录条数，第二个参数为每页显示条数
+$page = new Page(123);//实例化分页类，参数为总记录条数
+$page->pagesize = 20;
+$page->bothnum = 2;
+echo $page->limit;
+echo $page->showpage(); //调用
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +30,6 @@ $page = new Page(123,10);//实例化分页类，第一个参数为总记录条�
 	</style>
 </head>
 <body>
-	<?= $page->showpage(); //调用?>
+
 </body>
 </html>

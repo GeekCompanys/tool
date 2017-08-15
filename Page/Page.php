@@ -8,7 +8,7 @@ class Page{
 	private $pagenum;//获取总页码数
 	private $url;    //地址
 	private $bothnum;//两边保持数量
-	public function __construct($total,$pagesize){
+	public function __construct($total,$pagesize=10){
 		$this->total = $total?$total:1;
 		$this->pagesize = $pagesize;
 		$this->pagenum = ceil($this->total/$this->pagesize);
@@ -24,6 +24,13 @@ class Page{
 		return $this->$key;
 	}
 
+    /**私有属性设置
+     * @param $property_name
+     * @param $value
+     */
+    function __set($property_name, $value){
+        $this->$property_name = $value;
+    }
 
 	//分页信息
 	public function showpage(){
